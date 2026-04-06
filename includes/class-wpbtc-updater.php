@@ -106,6 +106,17 @@ class WPBTC_Updater {
 		return $info;
 	}
 
+	public static function is_update_available() {
+		$release = self::fetch_latest_release();
+		if ( ! $release || empty( $release->tag_name ) ) {
+			return false;
+		}
+
+		$remote_version = ltrim( $release->tag_name, 'v' );
+
+		return version_compare( WPBTC_VERSION, $remote_version, '<' );
+	}
+
 	public static function handle_check_updates() {
 		if ( ! current_user_can( 'manage_options' ) ) {
 			wp_die( 'Unauthorized' );

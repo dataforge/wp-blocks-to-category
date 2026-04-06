@@ -3,7 +3,7 @@
  * Plugin Name: WP Blocks to Category
  * Plugin URI: https://github.com/dataforge/wp-blocks-to-category
  * Description: Automatically assign categories to posts based on the blocks they contain. Configure block-to-category mappings in Settings > WP Blocks to Category.
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author: Dataforge
  * Text Domain: wp-blocks-to-category
  * Requires at least: 5.8
@@ -17,7 +17,7 @@ if (!defined('ABSPATH')) {
 }
 
 // Define plugin constants
-define('WPBTC_VERSION', '1.0.1');
+define('WPBTC_VERSION', '1.0.2');
 define('WPBTC_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('WPBTC_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('WPBTC_PLUGIN_BASENAME', plugin_basename(__FILE__));

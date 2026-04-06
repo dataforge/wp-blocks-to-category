@@ -207,5 +207,26 @@ if (!defined('ABSPATH')) {
                 <li><?php _e('If enabled, categories can be automatically removed when blocks are removed from posts', 'wp-blocks-to-category'); ?></li>
             </ol>
         </div>
+
+        <div class="card" style="margin-top:2em;">
+            <h2><?php _e('Plugin Updates', 'wp-blocks-to-category'); ?></h2>
+            <p>
+                <?php _e('Current version:', 'wp-blocks-to-category'); ?>
+                <strong>v<?php echo esc_html(WPBTC_VERSION); ?></strong>
+                <?php if (isset($_GET['update_check'])) : ?>
+                    <?php if (WPBTC_Updater::is_update_available()) : ?>
+                        &mdash; <span style="color:#b32d2e;"><?php _e('Update available!', 'wp-blocks-to-category'); ?></span>
+                        <a href="<?php echo esc_url(admin_url('update-core.php')); ?>"><?php _e('Go to Updates', 'wp-blocks-to-category'); ?></a>
+                    <?php else : ?>
+                        &mdash; <span style="color:#00a32a;"><?php _e('Up to date', 'wp-blocks-to-category'); ?></span>
+                    <?php endif; ?>
+                <?php endif; ?>
+            </p>
+            <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" style="display:inline;">
+                <input type="hidden" name="action" value="wpbtc_check_updates" />
+                <?php wp_nonce_field('wpbtc_check_updates'); ?>
+                <button type="submit" class="button"><?php _e('Check for Updates', 'wp-blocks-to-category'); ?></button>
+            </form>
+        </div>
     </div>
 </div>
